@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/justintungonline/automatetheboringstuff-py-tests)
+
 # Automate the Boring Stuff Python Tests
 
 Testing Python following [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/) book By Al Sweigart.
