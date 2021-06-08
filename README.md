@@ -12,9 +12,8 @@ Repository for learning notes and code while reading the book.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Python 3](https://www.python.org/)
-* [VS Code](https://code.visualstudio.com/docs/languages/python)
+- [Python 3](https://www.python.org/)
+- [VS Code with Python Extensions](https://code.visualstudio.com/docs/languages/python)
 
 ## Getting Started
 
@@ -39,3 +38,21 @@ Justin Tung - [@justin_tung](https://twitter.com/justin_tung/)
 ## Acknowledgements
 
 - [Best-README-Template: A README template to jumpstart projects](https://github.com/othneildrew/Best-README-Template/)
+
+## Appendix: Installation Details
+
+### Local Setup on Windows
+
+Use Python 3 install at <https://www.python.org/>. Another portable Python version can be installed using [WinPython Portable](http://winpython.github.io/)
+
+For Python editors, you can use [Mu](https://codewith.mu/), IDLE which comes with the Python 3 installation at python.org, and others like [VS Code](https://code.visualstudio.com/)
+
+### VS Code Set up
+
+Recommended workspace specific `settings.json`
+
+```json
+    "python.pythonPath": "C:\\path\\to\\Python3\\python.exe",
+    // default terminal to be friendly to Python extension terminal commands
+    // "terminal.integrated.defaultProfile.windows": "PowerShell",
+```
