@@ -19,7 +19,14 @@ Repository for learning notes and code while reading the book.
 
 ### Prerequisites
 
+- Use Python 3 install at <https://www.python.org/>. Another portable Python version can be installed such as [WinPython Portable](http://winpython.github.io/) on Windows.
+- For Python editors, you can use [Mu](https://codewith.mu/), IDLE which comes with the Python 3 installation at python.org, and others like [VS Code](https://code.visualstudio.com/).
+
 ### Installation
+
+Open your chosen editor
+
+On the terminal, check Python is installed with `python --version`.
 
 ## Usage
 
@@ -40,12 +47,6 @@ Justin Tung - [@justin_tung](https://twitter.com/justin_tung/)
 - [Best-README-Template: A README template to jumpstart projects](https://github.com/othneildrew/Best-README-Template/)
 
 ## Appendix: Installation Details
-
-### Local Setup on Windows
-
-Use Python 3 install at <https://www.python.org/>. Another portable Python version can be installed using [WinPython Portable](http://winpython.github.io/)
-
-For Python editors, you can use [Mu](https://codewith.mu/), IDLE which comes with the Python 3 installation at python.org, and others like [VS Code](https://code.visualstudio.com/)
 
 ### VS Code Set up
 
