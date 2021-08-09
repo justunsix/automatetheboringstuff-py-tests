@@ -153,5 +153,4 @@ Thumbs.db
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 # Project specific settings
-.vscode/*
 *.code-workspace
