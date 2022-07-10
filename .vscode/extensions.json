@@ -5,10 +5,13 @@
 	"recommendations": [
 		"ms-toolsai.jupyter",
 		"yzhang.markdown-all-in-one",
-		"DavidAnson.vscode-markdownlint",
+		"davidanson.vscode-markdownlint",
 		"ms-python.vscode-pylance",
 		"ms-python.python",
-		"ban.spellright"
+		"ban.spellright",
+		"github.copilot",
+		"github.copilot-labs",
+		"VisualStudioExptTeam.vscodeintellicode"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []
