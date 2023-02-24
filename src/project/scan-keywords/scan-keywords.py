@@ -31,15 +31,21 @@ def scan_file(file_path, keywords):
         print("| Number of matches for each keyword:")
         for keyword in keywords:
             keyword_count = 0
-            for line in file_lines:
-                if keyword.lower() in line.lower():
-                    keyword_count += 1
-            if keyword_count > 0:
-                # print found with ansi green color
-                print("| \033[1;32;40m", keyword, " found " + str(keyword_count) + " times.\033[0;37;40m")
-            else:
-                # print found with ansi red color
-                print("| \033[1;31;40m", keyword, " not found.\033[0;37;40m")
+            # if keyword begins with "##" just print the keyword and move to next list item since it is a group
+            if keyword.startswith("##"):
+                print("")
+                print("|", keyword, end=" ")
+                print("")
+            else:             
+                for line in file_lines:
+                    if keyword.lower() in line.lower():
+                        keyword_count += 1
+                if keyword_count > 0:
+                    # print found with ansi green color
+                    print("| \033[1;32;40m", keyword, " found " + str(keyword_count) + " times.\033[0;37;40m")
+                else:
+                    # print found with ansi red color
+                    print("| \033[1;31;40m", keyword, " not found.\033[0;37;40m")
 
     print("|")           
     print("+==============================================================")
