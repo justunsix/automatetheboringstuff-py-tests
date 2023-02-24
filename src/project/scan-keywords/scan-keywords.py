@@ -13,24 +13,36 @@ def get_keywords():
         return f.read().splitlines()
       
 def scan_file(file_path, keywords):
-    """Scan a file with a keywords list and when there is a match in the keyword, return the line number and full line."""
+    """Scan a file with a keywords list and when there is a match in the keyword (match is case insensitive), return the line number and full line. At end of file, return keywords and number of matches in the file for keywords that had a match."""   
     
     # filename is path in a string format relative to current directory   
     # Open the file and read it line by line
-    print("==============================================================")
-    print("Scanning file: " + file_path)
+    print("+==============================================================================================================")
+    print("|")
+    print("| Scanning file: " + file_path)
+    print("|")    
     with open(file_path, "r") as f:
-        
-        lines = f.readlines()
-        
-        # Iterate over the lines and check if the line contains any of the keywords
-        for i, line in enumerate(lines):
+        file_lines = f.readlines()
+        for line_number, line in enumerate(file_lines, 1):
             for keyword in keywords:
-                if keyword in line:
-                    print("Keyword: ", keyword, "| Line: " + str(i+1) + " | " + line)
-                    break
-           
-    print("==============================================================")
+                if keyword.lower() in line.lower():
+                    print("| Keyword: " + keyword + " found in line " + str(line_number) + ": " + line)
+        print("| ==============================================================")
+        print("| Number of matches for each keyword:")
+        for keyword in keywords:
+            keyword_count = 0
+            for line in file_lines:
+                if keyword.lower() in line.lower():
+                    keyword_count += 1
+            if keyword_count > 0:
+                # print found with ansi green color
+                print("| \033[1;32;40m", keyword, " found " + str(keyword_count) + " times.\033[0;37;40m")
+            else:
+                # print found with ansi red color
+                print("| \033[1;31;40m", keyword, " not found.\033[0;37;40m")
+
+    print("|")           
+    print("+==============================================================")
 # keywords list                    
 keywords_list = get_keywords()
 

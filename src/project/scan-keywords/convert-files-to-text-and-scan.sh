@@ -1,6 +1,6 @@
-# Using pandoc, convert all files in a directory to text files
+# Using pandoc, convert all files in a directory to text files and scan them for keywords specified in a file
 # Usage: convert-files-to-text.sh <directory> <output-directory>
-# Example: convert-files-to-text.sh .\input .\output
+# Example: convert-files-to-text.sh .\input .\output .\keywords.txt
 # Note: This script will create the output directory if it does not exist
 
 # Check that the input directory exists
@@ -27,4 +27,4 @@ do
 done
 
 # Using keywords.txt location and output directory, scan all text files for keywords
-python3 scan-keywords.py "examples/keywords.txt" "$2"
+python3 scan-keywords.py "$3" "$2"

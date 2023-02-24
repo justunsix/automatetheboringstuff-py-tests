@@ -1,0 +1,1 @@
+./convert-files-to-text-and-scan.sh "examples/scanme" "examples/output" "examples/keywords.txt"
