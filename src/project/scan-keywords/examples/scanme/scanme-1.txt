@@ -1,0 +1,5 @@
+The file in question is not using the CP1252 encoding. It's using another encoding. Which one you have to figure out yourself. Common ones are Latin-1 and UTF-8. Since 0x90 doesn't actually mean anything in Latin-1, UTF-8 (where 0x90 is a continuation byte) is more likely. world
+
+You specify the encoding when you open the file: Smart
+
+hello
