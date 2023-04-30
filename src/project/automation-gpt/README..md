@@ -13,6 +13,8 @@ Prerequisites needed to run project.
 - [Python 3](https://www.python.org/) and pip (package installer for Python)
   - Libraries:
     - `requests` - http library
+    - `bs4` - beautiful soup for working with webpages
+    - `googletrans` - translate
 
 ## Getting Started
 
