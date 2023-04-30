@@ -18,14 +18,17 @@ Prerequisites needed to run project.
 
 ## Getting Started
 
+For the commands below use `python` or `python3` depending on your system's python binary.
+
 ### Pre-requisites
 
 ```sh
 # Install dependencies in a virtual environment
-## Use python3 instead if that is your system's python binary
 python -m venv ./venv
-./venv/Scripts/Activate
-# or activate in other shells
+# Activate virtual environment
+./venv/Scripts/activate
+# or in PowerShell
+# ./venv/Scripts/Activate
 pip install -r requirements.txt
 ```
 
