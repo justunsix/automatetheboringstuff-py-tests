@@ -14,7 +14,7 @@ Prerequisites needed to run project.
   - Libraries:
     - `requests` - http library
     - `bs4` - beautiful soup for working with webpages
-    - `googletrans` - translate
+    - `googletrans` - language translate
 
 ## Getting Started
 
