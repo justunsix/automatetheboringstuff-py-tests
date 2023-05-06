@@ -9,4 +9,3 @@ this line should not be printed - 35 - - 0 0 0
 test line with one and two - - 2 1 ⬆ 2 1 ⬆
 lots of ones here - - 1 1 ⬆ 1 1 ⬆
 nobody here and should not be printed - - - - 7 3 ⬆
-```
