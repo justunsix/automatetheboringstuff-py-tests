@@ -1,4 +1,5 @@
-# Script to scan a list of keywords in a file and:
+# Script to scan a list of keywords in a file
+# specified as first argument in script and:
 # - Parse the file line by line and check the presence a metadata on the line
 # - If the line has the metadata, extract the keyword and print it
 #   - Metadata:
