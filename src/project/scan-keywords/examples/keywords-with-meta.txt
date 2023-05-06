@@ -1,0 +1,12 @@
+# Group 1
+this line has a one 2 1 ⬇ 1 0 1 0
+this line two has a one as well 3 0 1 0 1 0
+line without a one or two should not be printed 4 7 ⬇ 3 278 ⬇ 3 0 ⬇
+also line without a one or two alone should not be printed 5 0 7 0 12 0
+# Group 2
+hello world example with two twos - - 2 0 2 0
+this line should not be printed - 35 - - 0 0 0
+test line with one and two - - 2 1 ⬆ 2 1 ⬆
+lots of ones here - - 1 1 ⬆ 1 1 ⬆
+nobody here and should not be printed - - - - 7 3 ⬆
+```
