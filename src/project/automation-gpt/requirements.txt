@@ -1,4 +1,4 @@
-# OpenAI API
+# HTTP
 requests
 # Translate Headers 
 bs4
