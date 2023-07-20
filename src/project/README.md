@@ -2,7 +2,7 @@
 
 Projects by folder:
 
-- `automation-gpt`
+- `automation-gpt` - ChatGPT API interaction using python
   - `python-chatgpt` - API call to ChatGPT to generate Python code to automate tasks
 - `csv` - Working with `csv` files
   - `compare-columns` - Compare two columns in a `csv` file and file same and different values in the two columns
