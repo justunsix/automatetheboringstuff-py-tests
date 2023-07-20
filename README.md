@@ -14,6 +14,7 @@ Repository for learning notes and code while reading the book.
 
 - [Python 3](https://www.python.org/)
 - [VS Code with Python Extensions](https://code.visualstudio.com/docs/languages/python)
+  - [VS Code Python and Data Science profiles](https://code.visualstudio.com/docs/editor/profiles#_profile-templates)
 
 ## Getting Started
 
