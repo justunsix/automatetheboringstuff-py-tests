@@ -17,7 +17,8 @@ For the commands below use `python` or `python3` depending on your system's pyth
 #### Using Anaconda
 
 ```sh
-
+# Create a new environment
+conda create -n data-science python=3.8
 ```
 
 #### Using Python with Jupyter
