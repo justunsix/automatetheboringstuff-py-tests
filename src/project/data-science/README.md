@@ -6,7 +6,7 @@ Following [Doing Data Science in Visual Studio Code with Python](https://code.vi
 
 Prerequisites needed to run project.
 
-- [python3](https://www.python.org/) environment with Jupyter
+- [Python 3](https://www.python.org/)
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ For the commands below use `python` or `python3` depending on your system's pyth
 
 ### Pre-requisites
 
-#### Using Python with Jupyter
+#### Using Python
 
 ```sh
 # Install dependencies in a virtual environment
@@ -26,9 +26,9 @@ python -m venv ./venv
 pip install -r requirements.txt
 ```
 
-#### Using Anaconda
+#### Using Python with conda
 
-Option using [Anaconda or miniconda](https://www.anaconda.com/)
+Option install either [Anaconda or miniconda](https://www.anaconda.com/)
 
 - May be easier for Windows users to use Anaconda since it bundles many packages
 - miniconda is a smaller version of Anaconda with fewer packages, if not sure, use Anaconda
@@ -41,9 +41,10 @@ conda create --name "data-science" --file requirements.txt
 conda activate "data-science"
 ```
 
+- On Windows, case of error like `CondaVerificationError: The package for tensorflow...` follow these steps [to remove Windows' default max path limit](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/The-Windows-10-default-path-length-limitation-MAX-PATH-is-256-characters.html)
 - If using an integrated development environment (IDE), start the IDE and you may have to select the appropriate environment
   - For VS Code, activate the environment in the command line and start `code` from the command line. Use the `Python: Select Interpreter` command to [select the environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment). Select the directory for your source code and the appropriate environment
 
 ## Usage
 
-todo
+- Open `exploration.ipynb`

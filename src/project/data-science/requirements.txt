@@ -5,3 +5,8 @@ jupyter
 numpy
 pandas
 matplotlib
+## Data Science in VS Code Tutorial additions
+seaborn
+scikit-learn
+keras
+tensorflow
