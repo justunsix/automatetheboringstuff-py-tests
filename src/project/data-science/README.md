@@ -6,20 +6,13 @@ Following [Doing Data Science in Visual Studio Code with Python](https://code.vi
 
 Prerequisites needed to run project.
 
-- Anaconda or miniconda or python environment with Jupyter
+- [python3](https://www.python.org/) environment with Jupyter
 
 ## Getting Started
 
 For the commands below use `python` or `python3` depending on your system's python binary.
 
 ### Pre-requisites
-
-#### Using Anaconda
-
-```sh
-# Create a new environment
-conda create -n data-science python=3.8
-```
 
 #### Using Python with Jupyter
 
@@ -32,6 +25,24 @@ python -m venv ./venv
 # ./venv/Scripts/Activate
 pip install -r requirements.txt
 ```
+
+#### Using Anaconda
+
+Option using [Anaconda or miniconda](https://www.anaconda.com/)
+
+- May be easier for Windows users to use Anaconda since it bundles many packages
+- miniconda is a smaller version of Anaconda with fewer packages, if not sure, use Anaconda
+
+```sh
+# Create a new environment using requirements.txt file with packages
+# where "data-science" is the name of the environment
+conda create --name "data-science" --file requirements.txt
+# Activate the environment
+conda activate "data-science"
+```
+
+- If using an integrated development environment (IDE), start the IDE and you may have to select the appropriate environment
+  - For VS Code, activate the environment in the command line and start `code` from the command line. Use the `Python: Select Interpreter` command to [select the environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment). Select the directory for your source code and the appropriate environment
 
 ## Usage
 
