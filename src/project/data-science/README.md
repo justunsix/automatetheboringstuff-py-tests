@@ -41,9 +41,9 @@ conda create --name "data-science" --file requirements.txt
 conda activate "data-science"
 ```
 
-- On Windows, case of error like `CondaVerificationError: The package for tensorflow...` follow these steps [to remove Windows' default max path limit](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/The-Windows-10-default-path-length-limitation-MAX-PATH-is-256-characters.html)
+- On Windows, in case of error like `CondaVerificationError: The package for tensorflow...` follow these steps [to remove Windows' default max path limit](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/The-Windows-10-default-path-length-limitation-MAX-PATH-is-256-characters.html). The issue is caused by packages in Windows being in very long paths due to multiple nested folders.
 - If using an integrated development environment (IDE), start the IDE and you may have to select the appropriate environment
-  - For VS Code, activate the environment in the command line and start `code` from the command line. Use the `Python: Select Interpreter` command to [select the environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment). Select the directory for your source code and the appropriate environment
+  - For VS Code, activate the environment in the command line and start `code` from the command line. Use the `Python: Select Interpreter` command to [select the environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment). Select the directory of the appropriate environment.
 
 ## Usage
 
