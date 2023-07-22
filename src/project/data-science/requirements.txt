@@ -6,7 +6,10 @@ numpy
 pandas
 matplotlib
 ## Data Science in VS Code Tutorial additions
+## VS Code working packages
 seaborn
 scikit-learn
 keras
 tensorflow
+### Data Wrangler extension
+regex
