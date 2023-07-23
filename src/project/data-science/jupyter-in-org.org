@@ -5,6 +5,8 @@
 
 * Emacs Org-Mode with Jupyter Python
 
+See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
+
 ** Jupyter Notebook Style
 
 #+begin_src jupyter-python
@@ -64,8 +66,6 @@ pass
 [[file:]]
 
 ** Regular Evaluation
-
-See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
 
 #+begin_src python :results values
 def foo(x):
