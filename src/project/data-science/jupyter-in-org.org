@@ -1,0 +1,71 @@
+* Arguments for other jupyter-python source blocks
+
+#+PROPERTY: header-args:jupyter-python :session notebook-session
+#+PROPERTY: header-args:jupyter-python+ :async yes
+
+* Emacs Org-Mode with Jupyter Python
+
+** Jupyter Notebook Style
+
+#+begin_src jupyter-python
+print('Hello, world!')
+#+end_src
+
+#+RESULTS:
+: Hello, world!
+
+** Regular Evaluation
+
+See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
+
+#+begin_src python :results values
+def foo(x):
+  if x>0:
+    return x+1
+
+  else:
+    return x-1
+
+return foo(5)
+#+end_src
+
+#+RESULTS:
+: 6
+
+*** Code Images
+
+#+begin_src jupyter-python :file jupyter-in-org-matplot.png
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
+pass
+#+end_src
+
+#+RESULTS:
+[[file:jupyter-in-org-matplot.png]]
+
+*** Pandas DataFrame to Org
+
+#+name: pd2org
+#+begin_src python :var df="df" :exports none
+  import tabulate
+  return f"return tabulate({df}, headers={df}.columns, tablefmt='orgtbl')"
+#+end_src
+
+#+header: :prologue from tabulate import tabulate
+#+header: :noweb strip-export
+#+begin_src python :results value raw :exports both
+  import pandas as pd
+  df = pd.DataFrame({
+      "a": [1,2,3],
+      "b": [4,5,6]
+  })
+  <<pd2org("df")>>
+#+end_src
+
+#+RESULTS:
+|   | a | b |
+|---+---+---|
+| 0 | 1 | 4 |
+| 1 | 2 | 5 |
+| 2 | 3 | 6 |

@@ -1,6 +1,12 @@
 # Jupyter system, including the notebook, qtconsole, and the IPython kernel
 # https://pypi.org/project/jupyter/
 jupyter
+# Working with org packages
+## Text based tables
+tabulate
+## convert Jupyter notebooks to other formats
+## conda install -c conda-forge jupytext
+jupytext
 # Data Science packages
 numpy
 pandas
