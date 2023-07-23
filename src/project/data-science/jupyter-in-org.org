@@ -14,6 +14,55 @@ print('Hello, world!')
 #+RESULTS:
 : Hello, world!
 
+*** Code Images
+
+#+begin_src jupyter-python :file jupyter-in-org-matplot.png
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
+pass
+#+end_src
+
+#+RESULTS:
+[[file:jupyter-in-org-matplot.png]]
+
+
+#+begin_src python :results file link
+    import matplotlib, numpy
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    fig=plt.figure(figsize=(4,2))
+    x=numpy.linspace(-15,15)
+    plt.plot(numpy.sin(x)/x)
+    fig.tight_layout()
+    plt.savefig('jupyter-in-org-python-matplot-fig.png')
+    # return filename to org-mode
+    return 'jupyter-in-org-python-matplot-fig.png'
+#+end_src
+
+#+RESULTS:
+[[file:jupyter-in-org-python-matplot-fig.png]]
+
+#+name: savefig
+#+begin_src python :var figname="plot.svg" width=5 height=5 :exports none
+  return f"""plt.savefig('{figname}', width={width}, height={height})
+  '{figname}'"""
+#+end_src
+
+#+header: :noweb strip-export
+#+begin_src python :results value file link :session :exports both
+  import matplotlib, numpy
+  import matplotlib.pyplot as plt
+  fig=plt.figure(figsize=(4,2))
+  x=numpy.linspace(-15,15)
+  plt.plot(numpy.sin(x)/x)
+  fig.tight_layout()
+  <<savefig(figname="jupyter-in-org-plot.png", width=10, height=5)>>
+#+end_src
+
+#+RESULTS:
+[[file:]]
+
 ** Regular Evaluation
 
 See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
@@ -31,18 +80,6 @@ return foo(5)
 
 #+RESULTS:
 : 6
-
-*** Code Images
-
-#+begin_src jupyter-python :file jupyter-in-org-matplot.png
-import matplotlib.pyplot as plt
-fig, ax = plt.subplots()
-ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
-pass
-#+end_src
-
-#+RESULTS:
-[[file:jupyter-in-org-matplot.png]]
 
 *** Pandas DataFrame to Org
 
@@ -69,3 +106,18 @@ pass
 | 0 | 1 | 4 |
 | 1 | 2 | 5 |
 | 2 | 3 | 6 |
+
+*** Data Tables
+
+#+tblname: data_table
+| a | 1 |
+| b | 2 |
+| c | 3 |
+#+begin_src python :var val=1 :var data=data_table
+# Return row specified by val.
+# In non-session mode, use return to return results.
+return(data[val])
+#+end_src
+
+#+RESULTS:
+| b | 2 |
