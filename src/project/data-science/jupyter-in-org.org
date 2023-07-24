@@ -7,10 +7,22 @@
 
 See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
 
+** Check Python Executable being used
+
+Make sure it is the virtual environment for this project
+
+#+begin_src python
+    import sys
+    return sys.executable
+#+end_src
+
+#+RESULTS:
+
+
 ** Jupyter Notebook Style
 
 #+begin_src jupyter-python
-print('Hello, world!')
+print('Hello, world now!')
 #+end_src
 
 #+RESULTS:
