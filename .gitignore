@@ -150,5 +150,14 @@ Thumbs.db
 # profiling data
 .prof
 
+# emacs temp files
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.#*
 
 # End of https://www.toptal.com/developers/gitignore/api/python

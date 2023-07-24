@@ -6,7 +6,7 @@ jupyter
 tabulate
 ## convert Jupyter notebooks to other formats
 ## conda install -c conda-forge jupytext
-jupytext
+## jupytext
 # Data Science packages
 numpy
 pandas

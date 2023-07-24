@@ -9,7 +9,7 @@ See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][P
 
 ** Check Python Executable being used
 
-Make sure it is the virtual environment for this project
+Make sure python executable is in the virtual environment for this project
 
 #+begin_src python
     import sys
@@ -17,12 +17,13 @@ Make sure it is the virtual environment for this project
 #+end_src
 
 #+RESULTS:
+: /home/justin/.conda/envs/data-science/bin/python
 
 
 ** Jupyter Notebook Style
 
 #+begin_src jupyter-python
-print('Hello, world now!')
+print('Hello, world!')
 #+end_src
 
 #+RESULTS:
@@ -33,7 +34,7 @@ print('Hello, world now!')
 #+begin_src jupyter-python :file jupyter-in-org-matplot.png
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
-ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
+ax.plot([1, 2, 3, 4], [1, 4, 2, 10])
 pass
 #+end_src
 
