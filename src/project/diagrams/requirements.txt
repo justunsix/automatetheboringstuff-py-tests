@@ -1,2 +1,5 @@
 # Required per https://github.com/mingrammer/diagrams
 diagrams
+# Optional if using notebooks - Jupyter system, including the notebook, qtconsole, and the IPython kernel
+# https://pypi.org/project/jupyter/
+# jupyter
