@@ -1,0 +1,2 @@
+# Required per https://github.com/mingrammer/diagrams
+diagrams
