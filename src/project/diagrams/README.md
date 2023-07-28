@@ -2,6 +2,12 @@
 
 - Using [Diagram as Code](https://github.com/mingrammer/diagrams) to create diagrams
 
+## Built With
+
+Prerequisites needed to run project.
+
+- [Python 3](https://www.python.org/)
+
 ## Usage
 
 ### Install and Activate diagram as code in an environment
@@ -16,5 +22,11 @@ python -m venv ./venv
 pip install -r requirements.txt
 ```
 
-- Python notebook option: use `diagram-explore-nb.ipynb` to explore the diagrams 
-- Python option: run `python diagram-explore-nb.py` to generate the diagrams. Diagrams will be generated in the same folder
+- Python option: run the follow to create the diagrams. Diagrams will be generated in the same folder
+
+```sh
+python diagram-explore.py
+python diagram-explore-adf-pattern.py
+```
+
+- Python notebook option: use `diagram-explore-nb.ipynb` to explore the diagrams. Jupyter (`pip install jupyter`) in the Python environment is required.
