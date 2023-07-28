@@ -12,9 +12,7 @@ Prerequisites needed to run project.
 
 For the commands below use `python` or `python3` depending on your system's python binary.
 
-### Pre-requisites
-
-#### Using Python
+### Using Python
 
 ```sh
 # Install dependencies in a virtual environment
@@ -26,7 +24,7 @@ python -m venv ./venv
 pip install -r requirements.txt
 ```
 
-#### Using Python with conda
+### Using Python with conda
 
 Option install either [Anaconda or miniconda](https://www.anaconda.com/)
 
@@ -45,6 +43,6 @@ conda activate "data-science"
 - If using an integrated development environment (IDE), start the IDE and you may have to select the appropriate environment
   - For VS Code, activate the environment in the command line and start `code` from the command line. Use the `Python: Select Interpreter` command to [select the environment](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_setting-up-your-environment). Select the directory of the appropriate environment.
 
-## Usage
+### Run
 
 - Open `exploration.ipynb`
