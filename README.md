@@ -8,7 +8,8 @@ Testing Python following [Automate the Boring Stuff with Python](https://automat
 
 ## About The Project
 
-Repository for learning notes and code while reading the book.
+- Repository for learning notes and code while reading the book.
+- [Small projects using Python](src/project/README.md) for automating tasks or managing data.
 
 ### Built With
 
@@ -49,7 +50,7 @@ Justin Tung - [@justin_tung](https://twitter.com/justin_tung/)
 
 ## Appendix: Installation Details
 
-### VS Code Set up
+### Example VS Code Set up on Windows
 
 Recommended workspace specific `settings.json`
 

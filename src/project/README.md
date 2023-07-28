@@ -9,6 +9,7 @@ Projects by folder:
   - `reorder-names` - Reorder names / field data in a `csv` file in an order specified in the file
 - `data-science` - data analysis and management
   - Handle searching, replacing, querying, viewing, and editing data
+- `diagrams` - Creating diagrams as code using `diagrams` python package
 - `scan-keywords`
   - `scan-keywords` - Scan keywords in files and create a report on results
   - `scan-keywords-with-meta` - Scan keywords in a file with meta data and create a report on results
