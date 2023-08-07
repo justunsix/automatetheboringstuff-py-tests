@@ -1,5 +1,4 @@
 * Arguments for other jupyter-python source blocks
-
 #+PROPERTY: header-args:jupyter-python :session notebook-session
 #+PROPERTY: header-args:jupyter-python+ :async yes
 
@@ -17,10 +16,12 @@ Make sure python executable is in the virtual environment for this project
 #+end_src
 
 #+RESULTS:
-: /home/justin/.conda/envs/data-science/bin/python
+: C:\Users\justi\scoop\apps\miniconda3\current\envs\data-science\python.exe
 
 
 ** Jupyter Notebook Style
+
+If you get error =No org-babel-execute function for jupyter-python=, reload this org file and it is read the properties in the org file
 
 #+begin_src jupyter-python
 print('Hello, world!')
