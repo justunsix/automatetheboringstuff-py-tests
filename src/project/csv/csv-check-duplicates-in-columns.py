@@ -40,7 +40,7 @@ def check_duplicates(csv_file, column_names):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print("Please provide the path to the CSV file and the column names as arguments.\nExample: python check-user-files.py users.csv email username")
+        print("Usage: Provide the path to the CSV file and the column names separated with spaces as arguments.\nExample: python csv-check-duplicates-in-columns.py users.csv email username")
     else:
         csv_file = sys.argv[1]
         column_names = sys.argv[2:]
