@@ -17,6 +17,8 @@ def days_to_units_text_validated(num_of_days):
 def validate_and_execute():
     try:
         user_input_number = int(num_of_days_element)
+
+        # Do conversion only for positive integers
         if user_input_number > 0:
             calculated_value = days_to_units_text_validated(user_input_number)
             print(calculated_value)
