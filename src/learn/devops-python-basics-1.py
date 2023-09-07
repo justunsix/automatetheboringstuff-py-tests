@@ -29,12 +29,14 @@ def scope_check(number_of_days):
     print(calculation_to_units)
     print(number_of_days)
 
+
 # Call functions to see number of seconds in days
 days_to_units_20()
 days_to_units(20, "Awesome!")
 days_to_units(110, "Nice!")
 
 scope_check(54)
+
 
 #########
 # Input #
@@ -44,6 +46,7 @@ scope_check(54)
 # Return number of units in days as string
 def days_to_units_text(num_of_days):
     return f"{num_of_days} days are {num_of_days * calculation_to_units} {name_of_unit}"
+
 
 # Ask users for input and store user's input in a variable
 # The input function always returns a string variable
@@ -92,6 +95,7 @@ if user_input.isdigit():
 else:
     print("Your input is not a valid number. Enter a positive number.")
 
+
 ##################
 # Cleaned up Code
 
@@ -103,7 +107,7 @@ def validate_and_execute():
             checked_calculated_value = days_to_units_text_validated(user_input_number)
             print(checked_calculated_value)
         elif user_input_number == 0:
-            return "You entered a 0. Enter a positive number"
+            print("You entered a 0. Enter a positive number")
     else:
         print("Your input is not a valid number. Enter a positive number.")
 
@@ -116,24 +120,40 @@ def days_to_units_text_validated(num_of_days):
 
 validate_and_execute()
 
+
 ##################################
 # Error Handling with Try-Except #
 ##################################
 
 
-def validate_and_execute_tried():
+def validate_and_execute_try_except():
     try:
-        if user_input.isdigit():
-            user_input_number = int(user_input)
-            if user_input_number > 0:
-                checked_calculated_value = days_to_units_text_validated(user_input_number)
-                print(checked_calculated_value)
-            elif user_input_number == 0:
-                return "You entered a 0. Enter a positive number"
-            else:
-                return("You entered a negative number. Enter a positive number.")
+        user_input_number = int(user_input)
+        if user_input_number > 0:
+            calculated_value = days_to_units_text_validated(user_input_number)
+            print(calculated_value)
+        elif user_input_number == 0:
+            print("You entered a 0. Enter a positive number")
+        else:
+            print("You entered a negative number. Enter a positive number.")
     except ValueError:
         print("Error: Your input is not a valid number.")
 
 
-validate_and_execute_tried()
+validate_and_execute_try_except()
+
+###############
+# While Loops #
+###############
+
+# Prepare user's input variable
+# for while loop evaluation
+user_input = ""
+# Run continously until user inputs exit
+while user_input != "exit":
+    user_input = input("Enter number of days that this program will convert to hours or type exit to stop\n")
+    validate_and_execute_try_except()
+
+#######################
+# Lists and For Loops #
+#######################
