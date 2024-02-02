@@ -1,0 +1,5 @@
+"Keyword","Search Engine","Search URL","Result URL","Rank","Type","Match","Directory","Last Rank","Starred"
+"hello","google","https://www.google.ca/search?q=hello","https://en.wikipedia.org/wiki/Hello","1","Organic","Exact","","",""
+"world","bing","https://www.bing.com/search?q=world","https://en.wikipedia.org/wiki/World","4","Organic","Exact","","",""
+"testing","yahoo","https://search.yahoo.com/search?p=testing","https://en.wikipedia.org/wiki/Software_testing","2","Organic","Exact","","",""
+"hello better","google","https://www.google.ca/search?q=hello+better","https://www.hellobetter.com/","1","Organic","Exact","","",""
