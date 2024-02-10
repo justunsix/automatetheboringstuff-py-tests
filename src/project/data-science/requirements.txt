@@ -1,5 +1,7 @@
 # Jupyter system, including the notebook, qtconsole, and the IPython kernel
 # https://pypi.org/project/jupyter/
+## Restricting to jupyter_server to 1.23.4 for Emacs-Jupyter issue https://github.com/emacs-jupyter/jupyter/issues/500
+jupyter_server=1.23.4
 jupyter
 # Working with org packages
 ## Text based tables

@@ -6,6 +6,11 @@
 
 See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
 
+- Run Emacs in a conda environment
+- If you get error =No org-babel-execute function for jupyter-python=, reload this org file and to read the properties in the org file
+- If you get error =Jupyter REST API error: 404, "Not found"=, downgrade jupyter-server to 1.23.4 per https://github.com/emacs-jupyter/jupyter/issues/500
+
+
 ** Check Python Executable being used
 
 Make sure python executable is in the virtual environment for this project
@@ -16,12 +21,10 @@ Make sure python executable is in the virtual environment for this project
 #+end_src
 
 #+RESULTS:
-: C:\Users\justi\scoop\apps\miniconda3\current\envs\data-science\python.exe
+: /home/justin/.conda/envs/data-science/bin/python
 
 
 ** Jupyter Notebook Style
-
-If you get error =No org-babel-execute function for jupyter-python=, reload this org file and it is read the properties in the org file
 
 #+begin_src jupyter-python
 print('Hello, world!')
