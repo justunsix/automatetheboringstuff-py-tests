@@ -4,9 +4,11 @@
  # The script uses the pandas library to handle the data.
 import pandas as pd
 from io import StringIO
+import pyperclip
 
 data = """
 | Date of Run | End of Run |
+|-------------+------------|
 | JAN 04      | DEC 27     |
 | JAN 18      | JAN 10     |
 | FEB 01      | JAN 24     |
@@ -35,8 +37,8 @@ data = """
 | DEC 19      | DEC 11     |
 """
 
-# Remove the line with dashes
-data = '\n'.join([line for line in data.split('\n') if not set(line) == {' ', '|', '-'}])
+# Remove lines that start with '|--'
+data = '\n'.join([line for line in data.split('\n') if not line.startswith('|--')])
 
 # Read the data into a pandas DataFrame
 df = pd.read_table(StringIO(data), sep='|')
@@ -52,4 +54,7 @@ df['Date of Run'] = pd.to_datetime(df['Date of Run'] + ' 2024', format='%b %d %Y
 df['Date of Run'] = df['Date of Run'].dt.strftime('%Y-%m-%d')
 
 # Only print the dates back without index
-print(df['Date of Run'].to_string(index=False))
+printed_dates = df['Date of Run'].to_string(index=False)
+print(f'These dates are copied to the system clipboard:\n{printed_dates}')
+# Copy the output to the clipboard
+pyperclip.copy(printed_dates)
