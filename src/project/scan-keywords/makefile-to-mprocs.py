@@ -2,6 +2,9 @@
 # - Makefile specified by the path in the first argument e.g. python makefile-to-mprocs.py path/to/Makefile
 # - Each line with a target in the Makefile has a colon followed by a comment with two hashmarks (##)
 #   - Follows template from https://victoria.dev/blog/how-to-create-a-self-documenting-makefile/
+# Use case:
+# Created to help use mprocs to perform repetitive or long running processes in Makefiles
+
 import re
 import sys
 import os
