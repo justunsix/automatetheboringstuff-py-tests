@@ -11,8 +11,7 @@ Projects by folder:
   - Handle searching, replacing, querying, viewing, and editing data
 - `diagrams` - Creating diagrams as code using `diagrams` python package
 - `scan-keywords`
-  - `scan-keywords` - Scan keywords in files and create a report on results
-  - `scan-keywords-with-meta` - Scan keywords in a file with meta data and create a report on results
+  - `scan-keywords` - Scan keywords, metadata in files and create an output on results (for example reports)
 
 ## Environment Setup
 
