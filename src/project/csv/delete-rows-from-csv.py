@@ -4,7 +4,7 @@
 # - Remove the rows from the csv file
 #
 # Usage:
-# python delete-rows-from-csv.py examples/users.csv examples/emails.txt
+# python delete-rows-from-csv.py "examples/users.csv" "examples/emails.txt"
 import csv
 import os
 import argparse
@@ -17,7 +17,7 @@ def delete_rows(file_path, strings_to_delete):
 
     # Iterate over the rows
     for row in rows[:]:  # Use a slice to iterate over a copy of the list
-        if any(string in row for string in strings_to_delete):
+        if any(string.lower() in map(str.lower, row) for string in strings_to_delete):
             print(f"Deleting row: {row}")
             rows.remove(row)
 
