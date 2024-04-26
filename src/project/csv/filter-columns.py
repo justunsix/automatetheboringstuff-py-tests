@@ -1,4 +1,6 @@
-# filter a csv file based on specified column values
+# Filter a csv file based on specified column values
+# - Set the filters in the column_values variables, filters could be rangers, values
+# - Print out filtered data that match those column values
 import pandas as pd
 
 def filter_data(df, column_values):
