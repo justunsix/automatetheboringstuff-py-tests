@@ -4,7 +4,7 @@
 # - Remove the rows from the csv file
 #
 # Usage:
-# python delete-rows-from-csv.py examples/users.csv Laura.lee@email.com john.smith@email.com
+# python delete-rows-from-csv.py examples/users.csv examples/emails.txt
 import csv
 import os
 import argparse
@@ -29,7 +29,11 @@ def delete_rows(file_path, strings_to_delete):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Delete rows from a CSV file.')
     parser.add_argument('file_path', help='The path to the CSV file.')
-    parser.add_argument('strings_to_delete', nargs='+', help='The strings to delete.')
+    parser.add_argument('strings_file', help='The path to a text file with the strings to delete.')
     args = parser.parse_args()
 
-    delete_rows(args.file_path, args.strings_to_delete)
+    # Read the strings from the text file
+    with open(args.strings_file, 'r') as f:
+        strings_to_delete = [line.strip() for line in f]
+
+    delete_rows(args.file_path, strings_to_delete)
