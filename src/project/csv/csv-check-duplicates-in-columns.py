@@ -1,47 +1,24 @@
-import csv
+import pandas as pd
 import sys
 
-# Check for duplicates in columns of a CSV file
-# Specify the csv file to check and columns separated by a space
-# when calling the script
+# Get the CSV file and columns from the command line arguments
+csv_file = sys.argv[1]
+columns = sys.argv[2:]
 
-def check_duplicates(csv_file, column_names):
-    with open(csv_file, 'r') as file:
-        reader = csv.DictReader(file)
-        header = reader.fieldnames
-        for column_name in column_names:
-            if column_name not in header:
-                print(f"The column name '{column_name}' does not exist in the CSV file.")
-                # Remove the column from the list of columns to check
-                column_names.remove(column_name)
-        column_values = {column_name: [] for column_name in column_names}
-        duplicates = {column_name: [] for column_name in column_names}
-        for column_name in column_names:
-                line_numbers = []
-                line_contents = []
-                for i, row in enumerate(reader, start=1):
-                    for column_name in column_names:
-                        column_value = row[column_name]
-                        if column_value in column_values[column_name]:
-                            duplicates[column_name].append(column_value)
-                            line_numbers.append(i)
-                            line_contents.append(row)
-                        else:
-                            column_values[column_name].append(column_value)
-                for column_name in column_names:
-                    if duplicates[column_name]:
-                        print(f"The following {column_name} values are duplicated: {', '.join(duplicates[column_name])}")
-                if line_numbers:
-                    print("The following lines contain duplicates:")
-                    for i, line_number in enumerate(line_numbers):
-                        print(f"Line {line_number}: {line_contents[i]}")
-                else:
-                    print("No duplicates found in the selected columns.")
+# Read the CSV file
+df = pd.read_csv(csv_file)
 
-if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: Provide the path to the CSV file and the column names separated with spaces as arguments.\nExample: python csv-check-duplicates-in-columns.py users.csv email username")
-    else:
-        csv_file = sys.argv[1]
-        column_names = sys.argv[2:]
-        check_duplicates(csv_file, column_names)
+# Convert columns to numeric, non-numeric become NaN
+df[columns] = df[columns].apply(pd.to_numeric, errors='coerce')
+
+# Drop rows with NaN values in the specified columns
+df = df.dropna(subset=columns)
+
+# Find duplicate rows based on the specified columns
+duplicates = df[df.duplicated(subset=columns, keep=False)]
+
+# Sort the duplicates by the specified columns
+sorted_duplicates = duplicates.sort_values(by=columns)
+
+# Print the sorted duplicates
+print(sorted_duplicates)
