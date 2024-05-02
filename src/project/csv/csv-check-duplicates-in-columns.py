@@ -7,11 +7,7 @@ columns = sys.argv[2:]
 
 # Read the CSV file
 df = pd.read_csv(csv_file)
-
-# Convert columns to numeric, non-numeric become NaN
-df[columns] = df[columns].apply(pd.to_numeric, errors='coerce')
-
-# Drop rows with NaN values in the specified columns
+# remove rows with empty values in the specified columns
 df = df.dropna(subset=columns)
 
 # Find duplicate rows based on the specified columns
