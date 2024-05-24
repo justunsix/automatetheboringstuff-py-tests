@@ -10,6 +10,7 @@ Projects by folder:
 - `data-science` - data analysis and management
   - Handle searching, replacing, querying, viewing, and editing data
 - `diagrams` - Creating diagrams as code using `diagrams` python package
+- `kubernetes` - Managing kubernetes (k8s) resources
 - `scan-keywords`
   - `scan-keywords` - Scan keywords, metadata in files and create an output on results (for example reports)
 
