@@ -6,7 +6,6 @@
 # Usage:
 # python delete-rows-from-csv.py "examples/users.csv" "examples/emails.txt"
 import csv
-import os
 import argparse
 
 def delete_rows(file_path, strings_to_delete):
