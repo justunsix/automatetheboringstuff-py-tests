@@ -26,10 +26,10 @@ pip install -r requirements.txt
 
 ### Using Python with conda
 
-Option install either [Anaconda or miniconda](https://www.anaconda.com/)
+Option install [conda](https://conda.io/projects/conda/en/latest/index.html)
 
-- May be easier for Windows users to use Anaconda since it bundles many packages
-- miniconda is a smaller version of Anaconda with fewer packages, if not sure, use Anaconda
+- May be easier for Windows users to use Anaconda distribution since it bundles many packages
+- miniconda is a smaller version with fewer packages, if not sure, use conda 
 
 ```sh
 # Create a new environment using requirements.txt file with packages
