@@ -1,5 +1,5 @@
 # Use requests library to make HTTP POST request to OpenAI API
-# Using API completions endpoint, our API key, and a prompt for 
+# Using API completions endpoint, our API key, and a prompt for
 # the AI model selected.
 # Get response, validate it, and see response
 # Input Arguments
@@ -37,7 +37,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # Headers for OpenAI API call
 request_headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + api_key
+    "Authorization": f"Bearer {api_key}",
 }
 
 # Data for OpenAI API call with prompt
@@ -45,7 +45,7 @@ request_data = {
     "model": "text-davinci-003",
     "prompt": f"Write python script for {args.prompt}. Provide only code, no text",
     "max_tokens": 500,
-    "temperature": 0.5
+    "temperature": 0.5,
 }
 
 # Call OpenAI API with request data set above
@@ -62,4 +62,3 @@ if response.status_code == 200:
 else:
     print(f"Request failed with status code: {str(response.status_code)}")
     raise Exception(response.status_code, response.text)
-
