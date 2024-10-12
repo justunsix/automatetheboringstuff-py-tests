@@ -18,7 +18,7 @@ def days_to_units_20():
 
 # Define a new function called days_to_units
 # Function parameter is num_of_days, a local scope variable
-def days_to_units(num_of_days: object, custom_message: object) -> object:
+def days_to_units(num_of_days: int, custom_message: object) -> object:
     print(f"{num_of_days} days are {num_of_days * calculation_to_units} {name_of_unit}")
     print(custom_message)
 
@@ -151,7 +151,9 @@ validate_and_execute_try_except()
 user_input = ""
 # Run continously until user inputs exit
 while user_input != "exit":
-    user_input = input("Enter number of days that this program will convert to hours or type exit to stop\n")
+    user_input = input(
+        "Enter number of days that this program will convert to hours or type exit to stop\n"
+    )
     validate_and_execute_try_except()
 
 #######################

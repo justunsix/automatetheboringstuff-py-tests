@@ -8,6 +8,7 @@ name_of_unit = "seconds"
 
 # Support Functions
 
+
 # Return number of units in days as string
 # Parameter num_of_days must be a postive integer
 def days_to_units_text_validated(num_of_days):
@@ -49,6 +50,7 @@ def basic_list_operations():
 
     print(list_of_months)
 
+
 #######################
 # Lists and For Loops #
 #######################
@@ -58,8 +60,10 @@ def basic_list_operations():
 
 user_input = ""
 while user_input != "exit":
-    user_input = input("Enter number of days or list of them separated by commas and\n "
-                       "this program will convert to hours or type exit to stop\n")
+    user_input = input(
+        "Enter number of days or list of them separated by commas and\n "
+        "this program will convert to hours or type exit to stop\n"
+    )
     # user_input is a string and split(,) will provide a list splitting on comma
     # by default can also work on spaces
     for num_of_days_element in user_input.split(", "):
