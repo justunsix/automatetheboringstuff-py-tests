@@ -1,6 +1,8 @@
 # Python Automation with ChatGPT
 
-Following demonstration at [Python Automation with ChatGPT](https://www.youtube.com/watch?v=w-X_EQ2Xva4) by TechWorld with Nana.
+Following demonstration at
+[Python Automation with ChatGPT](https://www.youtube.com/watch?v=w-X_EQ2Xva4) by
+TechWorld with Nana.
 
 ## Built With
 
@@ -9,7 +11,9 @@ Prerequisites needed to run project.
 - [OpenAI API](https://platform.openai.com/)
   - [OpenAI API Documentation](https://platform.openai.com/docs/introduction)
   - Create and save a new API key
-  - Save key to environment variable `OPENAI_API_KEY`. To prevent the key from being stored in shell history, store the variable and key in a file and [use sourcing such as in bash and PowerShell](https://superuser.com/questions/71446/equivalent-of-bashs-source-command-in-powershell)
+  - Save key to environment variable `OPENAI_API_KEY`. To prevent the key from
+    being stored in shell history, store the variable and key in a file and
+    [use sourcing such as in bash and PowerShell](https://superuser.com/questions/71446/equivalent-of-bashs-source-command-in-powershell)
 - [Python 3](https://www.python.org/) and pip (package installer for Python)
   - Libraries:
     - `requests` - http library
@@ -18,7 +22,8 @@ Prerequisites needed to run project.
 
 ## Getting Started
 
-For the commands below use `python` or `python3` depending on your system's python binary.
+For the commands below use `python` or `python3` depending on your system's
+python binary.
 
 ### Pre-requisites
 
@@ -70,6 +75,7 @@ python clean-downloads.py
 
 ## Acknowledgements
 
-- [Python Automation with ChatGPT](https://www.youtube.com/watch?v=w-X_EQ2Xva4) by TechWorld with Nana
+- [Python Automation with ChatGPT](https://www.youtube.com/watch?v=w-X_EQ2Xva4)
+  by TechWorld with Nana
   - [python-automation-chatgpt repository with code](https://gitlab.com/nanuchi/python-automation-chatgpt)
 - [Best README Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)

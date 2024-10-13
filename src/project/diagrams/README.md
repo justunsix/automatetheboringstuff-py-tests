@@ -1,6 +1,7 @@
 # Diagrams
 
-- Using [Diagram as Code](https://github.com/mingrammer/diagrams) to create diagrams
+- Using [Diagram as Code](https://github.com/mingrammer/diagrams) to create
+  diagrams
 
 ## Built With
 
@@ -22,11 +23,14 @@ python -m venv ./venv
 pip install -r requirements.txt
 ```
 
-- Python option: run the follow to create the diagrams. Diagrams will be generated in the same folder
+- Python option: run the follow to create the diagrams. Diagrams will be
+  generated in the same folder
 
 ```sh
 python diagram-explore.py
 python diagram-explore-adf-pattern.py
 ```
 
-- Python notebook option: use `diagram-explore-nb.ipynb` to explore the diagrams. Jupyter (`pip install jupyter`) in the Python environment is required.
+- Python notebook option: use `diagram-explore-nb.ipynb` to explore the
+  diagrams. Jupyter (`pip install jupyter`) in the Python environment is
+  required.

@@ -1,6 +1,8 @@
 # Automate the Boring Stuff Python Tests
 
-Testing Python following [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/) book By Al Sweigart.
+Testing Python following
+[Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
+book By Al Sweigart.
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/justunsix/automatetheboringstuff-py-tests)
 
@@ -9,7 +11,8 @@ Testing Python following [Automate the Boring Stuff with Python](https://automat
 ## About The Project
 
 - Repository for learning notes and code while reading the book.
-- [Small projects using Python](src/project/README.md) for automating tasks or managing data.
+- [Small projects using Python](src/project/README.md) for automating tasks or
+  managing data.
 
 ### Built With
 
@@ -21,8 +24,12 @@ Testing Python following [Automate the Boring Stuff with Python](https://automat
 
 ### Prerequisites
 
-- Use Python 3 install at <https://www.python.org/>. Another portable Python version can be installed such as [WinPython Portable](http://winpython.github.io/) on Windows.
-- For Python editors, you can use [Mu](https://codewith.mu/), IDLE which comes with the Python 3 installation at python.org, and others like [VS Code](https://code.visualstudio.com/).
+- Use Python 3 install at <https://www.python.org/>. Another portable Python
+  version can be installed such as
+  [WinPython Portable](http://winpython.github.io/) on Windows.
+- For Python editors, you can use [Mu](https://codewith.mu/), IDLE which comes
+  with the Python 3 installation at python.org, and others like
+  [VS Code](https://code.visualstudio.com/).
 
 ### Installation
 
