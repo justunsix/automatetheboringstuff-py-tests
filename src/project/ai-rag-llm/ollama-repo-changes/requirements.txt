@@ -2,7 +2,7 @@ huggingface-hub
 sentence-transformers
 
 Flask==2.2.5
-Werkzeug==3.0.3
+Werkzeug==3.0.6
 flask-cors
 
 langchain==0.2.10
