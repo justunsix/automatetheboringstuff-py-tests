@@ -5,7 +5,7 @@ Flask==2.2.5
 Werkzeug==3.0.3
 flask-cors
 
-langchain==0.2.10
+langchain==0.3.0
 chromadb==0.3.29
 tiktoken
 unstructured
