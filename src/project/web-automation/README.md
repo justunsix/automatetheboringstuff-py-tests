@@ -4,7 +4,7 @@ Gather metadata on movies.
 
 ## Web automation setup
 
-Install requirements, depending on need, either playwright or selenium
+Install requirements, depending playwright or selenium
 
 ## Using playwright
 
