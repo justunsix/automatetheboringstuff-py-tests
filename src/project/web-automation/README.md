@@ -1,6 +1,6 @@
-# Metadata
+# Web Automation
 
-Gather metadata on movies.
+Automate website interactions
 
 ## Web automation setup
 
@@ -8,15 +8,17 @@ Install requirements, depending playwright or selenium
 
 ## Using playwright
 
-Initialization options in virtual environment
+Initialization options for virtual environment
 
 ```shell
-# Pip
+# pip option with virtual environment
+python3 -m virtualenv ./venv
+source ./venv/bin/activate
 pip install --upgrade pip
 pip install playwright
 playwright install
 
-# Conda
+# Conda Option
 conda config --add channels conda-forge
 conda config --add channels microsoft
 conda install playwright
@@ -28,10 +30,12 @@ playwright install
 ### Set up
 
 ```shell
-# Pip
+# pip option with virtual environment
+python3 -m virtualenv ./venv
+source ./venv/bin/activate
 pip install selenium
 
-# Conda
+# Conda Option
 conda install conda-forge::selenium
 ```
 
