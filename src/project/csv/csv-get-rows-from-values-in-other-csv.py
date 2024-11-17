@@ -53,21 +53,23 @@ def search_csv_file(csv_file, search_values, output_file):
         output_file (str): The path to the output CSV file where the results will be written.
     """
     results = []
-    with open(csv_file, newline="") as csvfile:
-        reader = csv.DictReader(csvfile)
+    with open(csv_file, newline="") as file:
+        reader = csv.DictReader(file)
         for row in reader:
             for value in search_values:
                 if value in row.values():
                     results.append(row)
                     break
 
-    with open(output_file, "w", newline="") as csvfile:
-        fieldnames = results[0].keys()
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for result in results:
-            writer.writerow(result)
+    if results:
+        with open(output_file, "w", newline="") as outfile:
+            writer = csv.DictWriter(outfile, fieldnames=results[0].keys())
+            writer.writeheader()
+            writer.writerows(results)
+
     return
 
 
 search_csv_file(csv_to_be_filtered, values_from_csv, csv_results_file)
+
+print(f"Results written to: {csv_results_file}")
