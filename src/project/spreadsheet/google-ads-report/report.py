@@ -44,7 +44,6 @@ def campaign_report():
     #         Clicks,
     #         Cost,
     #         "Impr.",
-    #         Interactions,
     #         Conversions,
     #         "Phone calls"
     #     FROM
@@ -65,7 +64,6 @@ def campaign_report():
         .map_elements(clean_and_convert, return_dtype=pl.Int16),
         pl.col("Cost").alias("Cost ($)"),
         pl.col("Impr.").alias("Impressions"),
-        pl.col("Interactions"),
         pl.col("Interaction rate"),
         pl.col("Conversions"),
         pl.col("Phone calls"),
