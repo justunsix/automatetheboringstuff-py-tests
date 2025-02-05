@@ -1,0 +1,9 @@
+[project]
+name = "ai-open-webui"
+version = "0.1.0"
+description = "Testing open-webui with local AI models"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "open-webui"
+]
