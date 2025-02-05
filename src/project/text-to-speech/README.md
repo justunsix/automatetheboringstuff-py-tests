@@ -1,7 +1,8 @@
 # Text to Speech Text
 
-[See source of code is utkarshkr13 / text-to-speech-synthesis](https://github.com/utkarshkr13/text-to-speech-synthesis/tree/main)
-for explanation of setup and use. Under MIT license.
+[Code is adapted from utkarshkr13 / text-to-speech-synthesis](https://github.com/utkarshkr13/text-to-speech-synthesis/tree/main).
+See that link for explanation of setup and use.
+Under [MIT license](https://github.com/utkarshkr13/text-to-speech-synthesis/tree/main?tab=MIT-1-ov-file#readme)
 
 ## Usage
 
