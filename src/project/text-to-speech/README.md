@@ -13,3 +13,8 @@ uv run tts.py
 # into speech.mp3 output file
 
 ```
+
+## See Also
+
+- [SpeechT5 Usage and Example code](https://huggingface.co/blog/speecht5)
+- [SpeechT5 for Chunking of input](https://www.aitude.com/transform-long-text-into-speech-with-microsofts-speecht5-using-chunking/)
