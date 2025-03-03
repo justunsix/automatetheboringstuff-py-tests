@@ -77,3 +77,6 @@ df = df.dropna(subset=columns)
 sorted_duplicates: pd.DataFrame = find_duplicates_sort_data(df, columns)
 
 print(sorted_duplicates)
+
+print("Creating CSV for inspection")
+sorted_duplicates.to_csv("sortedduplicates.csv", index=False)
