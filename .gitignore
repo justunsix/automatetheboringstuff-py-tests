@@ -163,6 +163,7 @@ Thumbs.db
 auto-save-list
 tramp
 .#*
+.projectile*
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
