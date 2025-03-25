@@ -3,6 +3,8 @@ import polars as pl
 CAMPAIGN_DATA = "campaigns.csv"
 AD_DATA = "ads.csv"
 LOCATION_DATA = "locations.csv"
+AD_GROUP_DATA = "ad-group.csv"
+SEARCHES_WORD_DATA = "searches-word-data.csv"
 
 # Polars output configuration
 ## Set polars table output as markdown
@@ -113,6 +115,29 @@ def locations_report():
     )
 
 
+def ad_groups_report():
+    """Read data and create summary of ad groups results"""
+
+    ad_groups = pl.read_csv(AD_GROUP_DATA, skip_lines=2, ignore_errors=True)
+
+    return (
+        ad_groups.select(
+            pl.col("Ad group"),
+            pl.col("Campaign"),
+            pl.col("Clicks")
+            .cast(pl.Utf8)
+            .map_elements(clean_and_convert, return_dtype=pl.Int16),
+            pl.col("Cost").alias("Cost ($)"),
+            pl.col("Impr.").alias("Impressions"),
+            pl.col("Interaction rate"),
+            pl.col("Conversions"),
+            pl.col("Phone calls"),
+        )
+        .filter(pl.col("Clicks").is_not_null())
+        .sort("Clicks", descending=True)
+    )
+
+
 def output(result):
     """Format analyzed data for reporting"""
     print(result)
@@ -124,6 +149,7 @@ def main():
     output(campaign_report())
     output(ads_report())
     output(locations_report())
+    output(ad_groups_report())
 
 
 if __name__ == "__main__":
