@@ -1,10 +1,10 @@
 import polars as pl
 
-CAMPAIGN_DATA = "campaigns.csv"
-AD_DATA = "ads.csv"
-LOCATION_DATA = "locations.csv"
-AD_GROUP_DATA = "ad-group.csv"
-SEARCHES_WORD_DATA = "searches-word-data.csv"
+CAMPAIGN_DATA = "Campaign report.csv"
+AD_DATA = "Ad report.csv"
+LOCATION_DATA = "Location report.csv"
+AD_GROUP_DATA = "Ad group report.csv"
+SEARCHES_WORD_DATA = "Searches-Word.csv"
 
 # Polars output configuration
 ## Set polars table output as markdown
