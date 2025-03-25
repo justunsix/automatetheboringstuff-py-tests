@@ -20,6 +20,7 @@ reports.
 - Edit the `report.py` and Google ads reports if you would like different
   columns
 - Download Google ads reports for campaign, locations, and ads
+- Make sure files are using UTF-8 encoding
 
 ### Report report
 

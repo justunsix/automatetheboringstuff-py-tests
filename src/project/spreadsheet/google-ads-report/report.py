@@ -58,18 +58,24 @@ def campaign_report():
 
     campaigns = pl.read_csv(CAMPAIGN_DATA, skip_lines=2)
 
-    return campaigns.select(
-        pl.col("Campaign status"),
-        pl.col("Campaign"),
-        pl.col("Clicks")
-        .cast(pl.Utf8)
-        .map_elements(clean_and_convert, return_dtype=pl.Int16),
-        pl.col("Cost").alias("Cost ($)"),
-        pl.col("Impr.").alias("Impressions"),
-        pl.col("Interaction rate"),
-        pl.col("Conversions"),
-        pl.col("Phone calls"),
-    ).filter((pl.col("Campaign status").eq("Total: Campaigns")))
+    return (
+        campaigns.select(
+            pl.col("Campaign"),
+            pl.col("Campaign status"),
+            pl.col("Clicks")
+            .cast(pl.Utf8)
+            .map_elements(clean_and_convert, return_dtype=pl.Int16),
+            pl.col("Cost").alias("Cost ($)"),
+            pl.col("Impr.").alias("Impressions"),
+            pl.col("Interaction rate"),
+            pl.col("Conversions"),
+            pl.col("Phone calls"),
+        )
+        .filter(pl.col("Clicks").is_not_null(), pl.col("Campaign").is_not_null())
+        .sort("Clicks", descending=True)
+        # Optional filter for whole account
+        # .filter((pl.col("Campaign status").eq("Total: Account")))
+    )
 
 
 def ads_report():
@@ -118,7 +124,10 @@ def locations_report():
 def ad_groups_report():
     """Read data and create summary of ad groups results"""
 
-    ad_groups = pl.read_csv(AD_GROUP_DATA, skip_lines=2, ignore_errors=True)
+    # truncate_ragged_lines added to fix: polars.exceptions.ComputeError: found more fields than defined in 'Schema'
+    ad_groups = pl.read_csv(
+        AD_GROUP_DATA, skip_lines=2, ignore_errors=True, truncate_ragged_lines=True
+    )
 
     return (
         ad_groups.select(
@@ -133,8 +142,28 @@ def ad_groups_report():
             pl.col("Conversions"),
             pl.col("Phone calls"),
         )
+        .filter(pl.col("Clicks").is_not_null(), pl.col("Ad group").is_not_null())
+        .sort("Clicks", descending=True)
+    )
+
+
+def word_searches_report():
+    """Read data and create summary of word search results"""
+
+    word_searches = pl.read_csv(SEARCHES_WORD_DATA, ignore_errors=True)
+
+    return (
+        word_searches.select(
+            pl.col("Word"),
+            pl.col("Clicks")
+            .cast(pl.Utf8)
+            .map_elements(clean_and_convert, return_dtype=pl.Int16),
+            pl.col("Impressions"),
+            pl.col("Top Containing Queries"),
+        )
         .filter(pl.col("Clicks").is_not_null())
         .sort("Clicks", descending=True)
+        .limit(10)
     )
 
 
@@ -145,11 +174,18 @@ def output(result):
 
 def main():
     """Read and analyze data and output for report"""
+    print("----------------\n\nReporting Period\n")
     get_dates_from_data()
+    print("----------------\n\nAccount and Campaigns\n")
     output(campaign_report())
-    output(ads_report())
-    output(locations_report())
+    print("----------------\n\nAd Groups\n")
     output(ad_groups_report())
+    print("----------------\n\nLocations\n")
+    output(locations_report())
+    print("----------------\n\nAds\n")
+    output(ads_report())
+    print("----------------\n\nWord Searches\n")
+    output(word_searches_report())
 
 
 if __name__ == "__main__":
