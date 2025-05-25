@@ -33,3 +33,9 @@ whisper audio.wav --model small --language English --output_format srt
 ## audio.srt file will be created
 
 ```
+
+### Example with uv
+
+```
+uv run whisper audio.wav --model small --language English --output_format srt
+```
