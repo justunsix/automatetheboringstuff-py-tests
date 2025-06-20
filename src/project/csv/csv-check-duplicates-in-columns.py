@@ -71,7 +71,8 @@ df = pd.read_csv(csv_file)
 # If further encoding issues, suggest alternative encodings, for example:
 # df = pd.read_csv(csv_file, encoding="ISO-8859-1")
 
-# remove rows with empty values in the specified columns
+# Remove rows with empty values in the specified columns
+# This filter means rows with duplicate empty values are ignored
 df = df.dropna(subset=columns)
 
 sorted_duplicates: pd.DataFrame = find_duplicates_sort_data(df, columns)
