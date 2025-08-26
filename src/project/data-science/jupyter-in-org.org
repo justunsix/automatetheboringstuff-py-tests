@@ -2,12 +2,31 @@
 #+PROPERTY: header-args:jupyter-python+ :async yes
 #+title: Jupyter like Functionality in Emacs Org-mode
 
-* Heading based settings for specific Environment
+* Heading based settings for specific Environment, Python Notebook
 :PROPERTIES:
 :header-args:    :python /home/user/Code/myproject/.venv/bin/python :session One :results output file :exports both
 :END:
 
+#+begin_src python :results output file :exports both
+
+import sys
+print(sys.executable)
+
+#+end_src
+
+#+RESULTS:
+[[file:/home/user/Code/myproject/.venv/bin/python]]
+
 #+begin_src python
+
+print(sys.executable)
+
+#+end_src
+
+#+RESULTS:
+: /home/user/Code/myproject/.venv/bin/python
+
+#+begin_src python :results output file :exports both
 
 import matplotlib.pyplot as plt
 
@@ -17,7 +36,11 @@ y = [2, 4, 6, 8]
 plt.plot(x, y)
 plt.savefig('output.png')
 print('output.png')
+
 #+end_src
+
+#+RESULTS:
+[[file:output.png]]
 
 ** Check Python Executable being used
 
