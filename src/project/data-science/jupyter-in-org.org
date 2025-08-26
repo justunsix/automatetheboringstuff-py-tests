@@ -1,15 +1,23 @@
-* Arguments for other jupyter-python source blocks
 #+PROPERTY: header-args:jupyter-python :session notebook-session
 #+PROPERTY: header-args:jupyter-python+ :async yes
+#+title: Jupyter like Functionality in Emacs Org-mode
 
-* Emacs Org-Mode with Jupyter Python
+* Heading based settings for specific Environment
+:PROPERTIES:
+:header-args:    :python /home/user/Code/myproject/.venv/bin/python :session One :results output file :exports both
+:END:
 
-See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
+#+begin_src python
 
-- Run Emacs in a conda environment
-- If you get error =No org-babel-execute function for jupyter-python=, reload this org file and to read the properties in the org file
-- If you get error =Jupyter REST API error: 404, "Not found"=, downgrade jupyter-server to 1.23.4 per https://github.com/emacs-jupyter/jupyter/issues/500
+import matplotlib.pyplot as plt
 
+x = [1, 2, 3, 4]
+y = [2, 4, 6, 8]
+
+plt.plot(x, y)
+plt.savefig('output.png')
+print('output.png')
+#+end_src
 
 ** Check Python Executable being used
 
@@ -21,8 +29,7 @@ Make sure python executable is in the virtual environment for this project
 #+end_src
 
 #+RESULTS:
-: /home/justin/.conda/envs/data-science/bin/python
-
+: /usr/bin/python3
 
 ** Jupyter Notebook Style
 
@@ -138,3 +145,12 @@ return(data[val])
 
 #+RESULTS:
 | b | 2 |
+
+* Emacs Org-Mode with Jupyter Python
+
+See [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]
+
+- Run Emacs in a conda environment
+- If you get error =No org-babel-execute function for jupyter-python=, reload this org file and to read the properties in the org file
+- If you get error =Jupyter REST API error: 404, "Not found"=, downgrade jupyter-server to 1.23.4 per https://github.com/emacs-jupyter/jupyter/issues/500
+
