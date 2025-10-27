@@ -5,7 +5,7 @@ help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 .ONESHELL:
-genai-chat-rag-app-init: ## Initialize chat application
+1-genai-chat-rag-app-init: ## Initialize chat and RAG application files from external repo
 	cd genai || exit
 	rm -r mslearn-ai-foundry -f
 	git clone https://github.com/microsoftlearning/mslearn-ai-studio mslearn-ai-foundry
@@ -20,7 +20,7 @@ genai-chat-rag-app-init: ## Initialize chat application
 	uv sync
 
 .ONESHELL:
-genai-chat-app-login-run: ## Login and Run chat application
+2a-genai-chat-app-login-run: ## Login and Run chat application
 	echo "Use browser for login"
 	echo "Make sure to update the .env file using the endpoint information in Azure AI Foundry"
 	az login
@@ -28,7 +28,7 @@ genai-chat-app-login-run: ## Login and Run chat application
 	uv run chat-app.py
 
 .ONESHELL:
-genai-rag-app-login-run: ## Login and Run Retrieval Augmented Generation RAG application
+2b-genai-rag-app-login-run: ## Login and Run Retrieval Augmented Generation RAG application
 	echo "Use browser for login"
 	echo "Make sure to update the .env file using information in Azure AI Foundry Overview area"
 	az login
