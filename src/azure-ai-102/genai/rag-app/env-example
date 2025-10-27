@@ -1,0 +1,8 @@
+OPEN_AI_ENDPOINT="https://ai-hub1111111.openai.azure.com/"
+OPEN_AI_KEY="my-long-key""
+CHAT_MODEL="gpt-4o"
+EMBEDDING_MODEL="text-embedding-ada-002"
+SEARCH_ENDPOINT="https://aisearch111111.search.windows.net/"
+SEARCH_KEY="my-long-key-2"
+INDEX_NAME="brochures-index"
+
