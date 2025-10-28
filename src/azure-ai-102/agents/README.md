@@ -9,3 +9,7 @@ applications.
 ## Develop an AI agent
 
 Updated file `agent.py` and added `pyproject.toml` and example `.env` file.
+
+## Develop a multi-agent solution with Azure AI Foundry
+
+Updated file `agent_triage.py` and added `pyproject.toml` and example `.env` file.

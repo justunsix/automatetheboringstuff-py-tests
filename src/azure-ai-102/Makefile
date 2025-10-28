@@ -46,9 +46,15 @@ Login-Notification:
 	rm -rf .git
 	cd Labfiles/02-build-ai-agent/Python
 	uv sync
+	cd ../../03b-build-multi-agent-solution/Python
+	uv sync
 
 4a-agents-develop-ai-agent-run: Login-Notification ## Login and Run agent with Code interpreter and threads
 	az login
 	cd ./agents/ai-agents/Labfiles/02-build-ai-agent/Python/
 	uv run agent.py
 
+4b-agents-multi-agent-solution-run: Login-Notification ## Login and Run agent with multiple agents
+	az login
+	cd ./agents/ai-agents/Labfiles/03b-build-multi-agent-solution/Python
+	uv run agent_triage.py
