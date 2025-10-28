@@ -41,6 +41,7 @@ Login-Notification:
 	cd agents || exit
 	rm -r ai-agents -f
 	git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
+	cp -f 02-build-ai-agent/* ai-agents/Labfiles/02-build-ai-agent/Python/
 	cd ai-agents
 	rm -rf .git
 	cd Labfiles/02-build-ai-agent/Python
