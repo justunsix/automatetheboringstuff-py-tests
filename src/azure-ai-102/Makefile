@@ -58,3 +58,17 @@ Login-Notification:
 	az login
 	cd ./agents/ai-agents/Labfiles/03b-build-multi-agent-solution/Python
 	uv run agent_triage.py
+
+5-language-init: ## Initialize language files from external repo
+	cd language || exit
+	rm -r mslearn-ai-language -f
+	git clone https://github.com/microsoftlearning/mslearn-ai-language
+	cp -f 01-analyze-text/* mslearn-ai-language/Labfiles/01-analyze-text/Python/text-analysis/
+	cd mslearn-ai-language
+	rm -rf .git
+	cd Labfiles/01-analyze-text/Python/text-analysis || exit
+	uv sync
+
+6a-language-01-analyze-text: ## Run text analysis
+	cd ./language/mslearn-ai-language/Labfiles/01-analyze-text/Python/text-analysis/ || exit
+	uv run text-analysis.py
