@@ -14,10 +14,6 @@ help: ## Show this help
 	cp -f rag-app/* mslearn-ai-foundry/labfiles/rag-app/python/
 	cd mslearn-ai-foundry
 	rm -rf .git
-	cd labfiles/chat-app/python
-	uv sync
-	cd ../../rag-app/python
-	uv sync
 
 .PHONY:
 .ONESHELL:
@@ -44,10 +40,6 @@ Login-Notification:
 	cp -f 02-build-ai-agent/* ai-agents/Labfiles/02-build-ai-agent/Python/
 	cd ai-agents
 	rm -rf .git
-	cd Labfiles/02-build-ai-agent/Python
-	uv sync
-	cd ../../03b-build-multi-agent-solution/Python
-	uv sync
 
 4a-agents-develop-ai-agent-run: Login-Notification ## Login and Run agent with Code interpreter and threads
 	az login
@@ -69,14 +61,6 @@ Login-Notification:
 	cp -f 09-audio-chat/* mslearn-ai-language/Labfiles/09-audio-chat/Python/
 	cd mslearn-ai-language
 	rm -rf .git
-	cd Labfiles/01-analyze-text/Python/text-analysis || exit
-	uv sync
-	cd ../../../02-qna/Python/qna-app || exit
-	uv sync
-	cd ../../../04-text-classification/Python/classify-text || exit
-	uv sync
-	cd ../../../09-audio-chat/Python || exit
-	uv sync
 
 6a-language-01-analyze-text: ## Run text analysis
 	cd ./language/mslearn-ai-language/Labfiles/01-analyze-text/Python/text-analysis/ || exit
@@ -99,14 +83,17 @@ Login-Notification:
 	cd vision
 	rm -r mslearn-ai-vision -f
 	git clone https://github.com/MicrosoftLearning/mslearn-ai-vision
-	cp -f analyze-images/* mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis
+	cp -f analyze-images/* mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis/
+	cp -f face/* mslearn-ai-vision/Labfiles/face/python/face-api/
 	cd mslearn-ai-vision
 	rm -rf .git
-	cd Labfiles/analyze-images/python/image-analysis || exit
-	uv sync
 
 8a-vision-analyze-images: ## Run analyze images
 	cd ./vision/mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis/ || exit
 	uv run image-analysis.py images/street.jpg
 	# uv run image-analysis.py images/building.jpg
 	uv run image-analysis.py images/person.jpg
+
+8b-vision-face: ## Run facial services
+	cd ./vision/mslearn-ai-vision/Labfiles/face/python/face-api/ || exit
+	uv run analyze-faces.py images/face1.jpg
