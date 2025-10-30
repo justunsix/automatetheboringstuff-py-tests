@@ -20,3 +20,8 @@ example `.env` files.
 
 Updated file `classify-text.py` and added `pyproject.toml` and
 example `.env` files.
+
+## 09 Audio Chat
+
+Updated file `audio-chat.py` and added `pyproject.toml` and
+example `.env` files.
