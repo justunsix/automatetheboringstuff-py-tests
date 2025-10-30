@@ -6,7 +6,17 @@ Projects related to exercises for
 See exercise instructions and [`Makefile`](../Makefile) for running
 applications.
 
-## Analyze Text
+## 01 Analyze Text
 
 Updated file `text-analysis.py` and added `pyproject.toml` and
 example `.env` and `results.txt` output files.
+
+## 02 Question and Answering (QnA)
+
+Updated file `qna-app.py` and added `pyproject.toml` and
+example `.env` files.
+
+## 04 Text Classification
+
+Updated file `classify-text.py` and added `pyproject.toml` and
+example `.env` files.

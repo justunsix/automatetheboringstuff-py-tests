@@ -64,11 +64,25 @@ Login-Notification:
 	rm -r mslearn-ai-language -f
 	git clone https://github.com/microsoftlearning/mslearn-ai-language
 	cp -f 01-analyze-text/* mslearn-ai-language/Labfiles/01-analyze-text/Python/text-analysis/
+	cp -f 02-qna/* mslearn-ai-language/Labfiles/02-qna/Python/qna-app
+	cp -f 04-text-classification/* mslearn-ai-language/Labfiles/04-text-classifications/Python/classify-text
 	cd mslearn-ai-language
 	rm -rf .git
 	cd Labfiles/01-analyze-text/Python/text-analysis || exit
+	uv sync
+	cd ../../../02-qna/Python/qna-app || exit
+	uv sync
+	cd ../../../04-text-classification/Python/classify-text || exit
 	uv sync
 
 6a-language-01-analyze-text: ## Run text analysis
 	cd ./language/mslearn-ai-language/Labfiles/01-analyze-text/Python/text-analysis/ || exit
 	uv run text-analysis.py
+
+6b-language-02-qna: ## Run question and answering chat
+	cd ./language/mslearn-ai-language/Labfiles/02-qna/Python/qna-app/ || exit
+	uv run qna-app.py
+
+6c-language-04-classify-text: ## Run text classification
+	cd ./language/mslearn-ai-language/Labfiles/04-text-classification/Python/classify-text || exit
+	uv run classify-text.py
