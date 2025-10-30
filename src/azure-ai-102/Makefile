@@ -93,7 +93,17 @@ Login-Notification:
 	uv run image-analysis.py images/street.jpg
 	# uv run image-analysis.py images/building.jpg
 	uv run image-analysis.py images/person.jpg
+	open ./objects.jpg
+	open ./people.jpg
 
 8b-vision-face: ## Run facial services
 	cd ./vision/mslearn-ai-vision/Labfiles/face/python/face-api/ || exit
 	uv run analyze-faces.py images/face1.jpg
+	cp detected_faces.jpg detected_faces1.jpg
+	open ./detected_faces1.jpg
+	uv run analyze-faces.py images/face2.jpg
+	cp detected_faces.jpg detected_faces2.jpg
+	open ./detected_faces2.jpg
+	uv run analyze-faces.py images/faces.jpg
+	cp detected_faces.jpg detected_faces3.jpg
+	open ./detected_faces3.jpg
