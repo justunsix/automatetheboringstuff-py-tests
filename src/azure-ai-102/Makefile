@@ -94,3 +94,19 @@ Login-Notification:
 	az login
 	cd ./language/mslearn-ai-language/Labfiles/09-audio-chat/Python/ || exit
 	uv run audio-chat.py
+
+7-vision-init: ## Initialize vision files from external repo
+	cd vision
+	rm -r mslearn-ai-vision -f
+	git clone https://github.com/MicrosoftLearning/mslearn-ai-vision
+	cp -f analyze-images/* mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis
+	cd mslearn-ai-vision
+	rm -rf .git
+	cd Labfiles/analyze-images/python/image-analysis || exit
+	uv sync
+
+8a-vision-analyze-images: ## Run analyze images
+	cd ./vision/mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis/ || exit
+	uv run image-analysis.py images/street.jpg
+	# uv run image-analysis.py images/building.jpg
+	uv run image-analysis.py images/person.jpg
