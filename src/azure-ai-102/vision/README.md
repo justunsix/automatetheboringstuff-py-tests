@@ -10,3 +10,13 @@ applications.
 
 Updated file `image-analysis.py` and added `pyproject.toml` and
 example `.env`.
+
+## Faces
+
+Updated file `analyze-faces.py` and added `pyproject.toml` and
+example `.env`.
+
+## Image generation
+
+Updated file `dalle-client.py` and added `pyproject.toml` and
+example `.env`.

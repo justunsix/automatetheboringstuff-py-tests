@@ -85,6 +85,7 @@ Login-Notification:
 	git clone https://github.com/MicrosoftLearning/mslearn-ai-vision
 	cp -f analyze-images/* mslearn-ai-vision/Labfiles/analyze-images/python/image-analysis/
 	cp -f face/* mslearn-ai-vision/Labfiles/face/python/face-api/
+	cp -f dalle-client/* mslearn-ai-vision/Labfiles/dalle-client/python
 	cd mslearn-ai-vision
 	rm -rf .git
 
@@ -107,3 +108,26 @@ Login-Notification:
 	uv run analyze-faces.py images/faces.jpg
 	cp detected_faces.jpg detected_faces3.jpg
 	open ./detected_faces3.jpg
+
+8c-vision-image-generation: Login-Notification ## Run image generation
+	az login
+	cd ./vision/mslearn-ai-vision/Labfiles/dalle-client/python/
+	uv run dalle-client.py
+	open ./images/image_1.png
+
+9-information-extraction-init: ## Initialize information extraction, document intelligence files from external repo
+	cd information-extraction || exit
+	rm -r mslearn-ai-info -f
+	git clone https://github.com/microsoftlearning/mslearn-ai-information-extraction mslearn-ai-info
+	cp -f prebuilt-doc-intelligence/* mslearn-ai-info/Labfiles/prebuilt-doc-intelligence/Python/
+	cp -f knowledge/* mslearn-ai-info/Labfiles/knowledge/python/
+	cd mslearn-ai-info || exit
+	rm -rf .git
+
+10a-information-extraction-prebuilt-doc-intel: ## Run prebuilt document intelligence
+	cd ./information-extraction/mslearn-ai-info/Labfiles/prebuilt-doc-intelligence/Python/
+	uv run document-analysis.py
+
+10b-information-extraction-knowledge: ## Run knowledge mining
+	cd ./information-extraction/mslearn-ai-info/Labfiles/knowledge/python/
+	uv run search-app.py
