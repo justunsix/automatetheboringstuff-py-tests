@@ -1,6 +1,6 @@
 # Create Subtitles
 
-Create subtitles in an srt format from an existing video file using [OpenAI Whisper](https://github.com/openai/whisper)
+Create subtitles in an `srt` format from an existing video file using [OpenAI Whisper](https://github.com/openai/whisper)
 
 ## Pre-requisites
 
