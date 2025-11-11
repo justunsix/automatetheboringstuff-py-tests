@@ -3,7 +3,5 @@ name = "ai-whisper"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "openai-whisper",
-]
+requires-python = ">=3.11"
+dependencies = ["openai-whisper"]
