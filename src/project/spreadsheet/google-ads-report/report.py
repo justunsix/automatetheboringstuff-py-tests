@@ -1,10 +1,12 @@
 import polars as pl
+import pyperclip
 
 CAMPAIGN_DATA = "Campaign report.csv"
 AD_DATA = "Ad report.csv"
 LOCATION_DATA = "Location report.csv"
 AD_GROUP_DATA = "Ad group report.csv"
 SEARCHES_WORD_DATA = "Searches-Word.csv"
+ASSETS_GROUPS_DATA = "Asset groups report.csv"
 
 # Polars output configuration
 ## Set polars table output as markdown
@@ -25,10 +27,8 @@ def clean_and_convert(s):
 def get_dates_from_data():
     """Read to/from dates in campaign report.
     Assume other reports use the same dates"""
-    output(
-        pl.read_csv(CAMPAIGN_DATA, n_rows=1, truncate_ragged_lines=True).select(
-            pl.col("Campaign report").alias("Reporting period")
-        )
+    return pl.read_csv(CAMPAIGN_DATA, n_rows=1, truncate_ragged_lines=True).select(
+        pl.col("Campaign report").alias("Reporting period")
     )
 
 
@@ -61,7 +61,6 @@ def campaign_report():
     return (
         campaigns.select(
             pl.col("Campaign"),
-            pl.col("Campaign status"),
             pl.col("Clicks")
             .cast(pl.Utf8)
             .map_elements(clean_and_convert, return_dtype=pl.Int16),
@@ -103,6 +102,25 @@ def ads_report():
     )
 
 
+def asset_groups_report():
+    """Read data and create summary of ad assets results"""
+    ad_assets = pl.read_csv(
+        ASSETS_GROUPS_DATA,
+        skip_lines=2,
+        ignore_errors=True,
+    )
+    return ad_assets.select(
+        pl.col("Asset Group"),
+        pl.col("Clicks")
+        .cast(pl.Utf8)
+        .map_elements(clean_and_convert, return_dtype=pl.Int16),
+        pl.col("Cost").alias("Cost ($)"),
+        pl.col("Impr.").alias("Impressions"),
+        pl.col("Interaction rate"),
+        pl.col("Conversions"),
+    )
+
+
 def locations_report():
     """Read data and create summary of locations results"""
 
@@ -112,11 +130,15 @@ def locations_report():
         locations.select(
             pl.col("Location"),
             pl.col("Campaign"),
-            pl.col("Clicks").map_elements(clean_and_convert, return_dtype=pl.Int16),
+            pl.col("Clicks"),
+            # Cast if issues
+            # pl.col("Clicks")
+            # .cast(pl.Utf8)
+            # .map_elements(clean_and_convert, return_dtype=pl.Int16),
             pl.col("Conversions"),
         )
         .sort(pl.col("Clicks"), descending=True)
-        .filter(pl.col("Location").is_not_null())
+        .filter(pl.col("Campaign").is_not_null())
         .limit(10)
     )
 
@@ -167,25 +189,30 @@ def word_searches_report():
     )
 
 
-def output(result):
-    """Format analyzed data for reporting"""
-    print(result)
-
-
 def main():
     """Read and analyze data and output for report"""
-    print("----------------\n\nReporting Period\n")
-    get_dates_from_data()
-    print("----------------\n\nAccount and Campaigns\n")
-    output(campaign_report())
-    print("----------------\n\nAd Groups\n")
-    output(ad_groups_report())
-    print("----------------\n\nLocations\n")
-    output(locations_report())
-    print("----------------\n\nAds\n")
-    output(ads_report())
-    print("----------------\n\nWord Searches\n")
-    output(word_searches_report())
+
+    # Report text in String format
+    output_result = ""
+
+    output_result = output_result + "\n*** Reporting Period\n\n"
+    output_result = output_result + str(get_dates_from_data()) + "\n"
+    output_result = output_result + "\n*** Campaign Performance\n\n"
+    output_result = output_result + str(campaign_report()) + "\n"
+    output_result = output_result + "\n*** Ad Groups\n\n"
+    output_result = output_result + str(ad_groups_report()) + "\n"
+    output_result = output_result + "\n*** Asset Groups\n\n"
+    output_result = output_result + str(asset_groups_report()) + "\n"
+
+    output_result = output_result + "\n*** Top Locations by Clicks\n\n"
+    output_result = output_result + str(locations_report()) + "\n"
+    output_result = output_result + "\n*** Most Shown Ads\n\n"
+    output_result = output_result + str(ads_report()) + "\n"
+    output_result = output_result + "\n*** Popular Words in Searches\n\n"
+    output_result = output_result + str(word_searches_report()) + "\n"
+
+    print(output_result + "\n\nCopied output to System Clipboard")
+    pyperclip.copy(output_result)
 
 
 if __name__ == "__main__":

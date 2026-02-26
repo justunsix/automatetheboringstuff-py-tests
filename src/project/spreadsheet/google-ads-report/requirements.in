@@ -1,1 +1,3 @@
 polars
+# Copy to system clipboard
+pyperclip
