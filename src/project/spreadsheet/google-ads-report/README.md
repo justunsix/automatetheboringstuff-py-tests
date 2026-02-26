@@ -8,9 +8,9 @@ reports.
 ### Prepare data files
 
 - In Google ads, select the default (canned / premade) reports for:
-  - Campaigns
-  - Locations
-  - Ads
+  - Campaigns (Campaigns > Reports > Performance Summary > Campaign Performance)
+  - Locations (Assets > Locations)
+  - Ads (Campaigns > Reports > Ads and Assets > Ads Performance)
 - Refer to [report.py](./report.py) for columns selected for these reports. In
   summary, they are:
   - Campaigns: status, campaign name, Clicks, Cost, Impressions, Interaction
