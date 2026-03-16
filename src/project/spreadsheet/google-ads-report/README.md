@@ -10,13 +10,13 @@ reports.
 In Google ads, select the default (canned / premade) reports for the 
 following and download them:
 
-`Ad group report.csv` - Ad groups (Campaigns > Ad groups)
-`Ad report.csv` - Ads (Campaigns > Ads > Main Screen)
-`Asset groups report.csv` - Asset groups (Campaigns > Asset groups)
-`Campaign report.csv` - Campaigns (Campaigns > Main Screen)
-`Location report.csv` - Locations (Assets > Locations)
-`Searches-Word.csv` - Word Searches (Overview > Top searches and words
-within searches where people saw your ads)
+- `Ad group report.csv` - Ad groups (Campaigns > Ad groups)
+- `Ad report.csv` - Ads (Campaigns > Ads > Main Screen)
+- `Asset groups report.csv` - Asset groups (Campaigns > Asset groups)
+- `Campaign report.csv` - Campaigns (Campaigns > Main Screen)
+- `Location report.csv` - Locations (Audiences, keywords, and content > Locations)
+- `Searches-Word.csv` - Word Searches (Overview > Top searches and words 
+  within searches where people saw your ads)
   
 Refer to [report.py](./report.py) for columns selected for these reports. In
 summary, they are:
