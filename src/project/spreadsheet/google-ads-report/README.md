@@ -22,13 +22,15 @@ Refer to [report.py](./report.py) for columns selected for these reports. In
 summary, they are:
 
 - Campaigns: status, campaign name, Clicks, Cost, Impressions, Interaction
-  Rate, Conversion, Phone calls
-- Ads: First 3 headlines, Clicks, Final URL
+  Rate, Conversion, **Phone calls**
+- Ads: First 3 headlines, Clicks, **Final URL**
 - Locations: Location, Campaign, Clicks, Conversions
 - Ad groups: ad group, campaign, clicks, cost, impressions, interaction rate, 
-  conversions, phone calls
+  conversions, **Phone calls**
 - Asset groups: Asset group, Clicks, Impressions, interaction rate, Conversions
 - Word Searches: standardized by the report card
+
+Columns that might need to be selected explicitly are bolded.
 
 ### Prepare report configuration
 
