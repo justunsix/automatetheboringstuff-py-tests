@@ -1,5 +1,6 @@
 import polars as pl
 import pyperclip
+from pathlib import Path
 
 CAMPAIGN_DATA = "Campaign report.csv"
 AD_DATA = "Ad report.csv"
@@ -201,8 +202,9 @@ def main():
     output_result = output_result + str(campaign_report()) + "\n"
     output_result = output_result + "\n*** Ad Groups\n\n"
     output_result = output_result + str(ad_groups_report()) + "\n"
-    output_result = output_result + "\n*** Asset Groups\n\n"
-    output_result = output_result + str(asset_groups_report()) + "\n"
+    if Path(ASSETS_GROUPS_DATA).exists():
+        output_result = output_result + "\n*** Asset Groups\n\n"
+        output_result = output_result + str(asset_groups_report()) + "\n"
 
     output_result = output_result + "\n*** Top Locations by Clicks\n\n"
     output_result = output_result + str(locations_report()) + "\n"
