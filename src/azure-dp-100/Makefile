@@ -13,7 +13,7 @@ help: ## Show this help
 	cd mslearn-azure-ml
 	rm -rf .git
 
-1-run-code: Login-Notification ## Run code for labs
+1-run-code: Login-Notification ## Run VS Code for labs
 	az login
 	# Alternatively, use uv run jupyter notebook
 	uv run code ../../
