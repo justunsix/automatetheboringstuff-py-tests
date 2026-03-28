@@ -1,5 +1,11 @@
 # Automate the Boring Stuff Python Tests
 
+**Attention: Repository has moved to [justunsix/pyt - GitHub](https://github.com/justunsix/pyt).**
+
+**This repository will no longer be updated.**
+
+## About The Project
+
 Testing Python following
 [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
 book By Al Sweigart.
@@ -7,8 +13,6 @@ book By Al Sweigart.
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/justunsix/automatetheboringstuff-py-tests)
 
 [Explore Documentation](https://github.com/justunsix/automatetheboringstuff-py-tests/wiki)
-
-## About The Project
 
 - Repository for learning notes and code while reading the book.
 - [Small projects using Python](src/project/README.md) for automating tasks or
