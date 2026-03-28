@@ -1,0 +1,9 @@
+[tools]
+black = "latest"
+ruff = "latest"
+uv = "latest"
+terraform-ls = "latest"
+terraform = "latest"
+prettier = "latest"
+markdownlint-cli2 = "latest"
+marksman = "latest"
