@@ -23,47 +23,53 @@ structure, and best practices.
   the appropriate `requirements.txt` or `pyproject.toml` as needed
   or simply use `uv run`. Example:
 
+### Running Scripts
+
+If `pyproject.toml` is present, use `uv run` to install deps and execute:
+
 ```sh
-uv run projectfile.py
-
-# or virtualenv activation
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r path/to/requirements.txt
-
+uv run <script>.py
 ```
 
-### Running Application Scripts
+For legacy projects with `requirements.txt`:
 
-See related README.md and Makefile for projects
-and variables that must be set like using `.env`.
+```sh
+python -m venv ./venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+python <script>.py
+```
 
-Most projects are run like `uv run main_project_file.py`
+Some projects have Makefiles with self-documenting targets (search for `##`):
 
----
+```sh
+make help             # list available targets
+make <target-name>    # run a target
+```
 
-### Testing
-
-- **Unit Test Structure:** There is no universal test runner or central pytest
-  setup.
-
----
+See each sub-project's `README.md` for required environment variables (`.env`).
 
 ### Linting and Formatting
 
-- No project-global lint config. Follow PEP8.
-- To use formatters which are usully `black`, `ruff`
-- To format with black:
+Format with `black` and lint with `ruff`. Run from repo root or sub-project dir:
 
-  ```sh
-  black .
-  ```
+```sh
+black .    # auto-format Python files
+ruff .     # lint (default rules)
+```
 
-- If ruff available, use:
+No project-global config exists for these tools; they use defaults.
 
-  ```sh
-  ruff .
-  ```
+### Testing
+
+There is **no test infrastructure** in this repository. No `test_*.py` files,
+no `pytest.ini`, no `conftest.py`, no test dependencies.
+
+When adding tests, follow these conventions:
+
+- Use `pytest` as the test runner.
+- Place tests in a `tests/` subdirectory adjacent to the code, or name files
+  `test_<module>.py`.
 
 ---
 
@@ -71,88 +77,93 @@ Most projects are run like `uv run main_project_file.py`
 
 ### Indentation and Formatting
 
-- Python files should use **2 spaces** per indent level ([.editorconfig]).
-- Use spaces, NOT tabs. No trailing whitespace.
-- Lines should generally adhere to **PEP8 max 79/89 char lines**.
-- Group imports as:
-  1. Standard library
-  2. Third-party
-  3. Local/app With a blank line between each group.
-- Use absolute imports when possible.
+- Use **2 spaces** per indent level ([.editorconfig]).
+- Spaces only, no tabs. No trailing whitespace.
+- Keep lines within **79 characters** (soft limit) or **89 characters** (hard).
+- Use f-strings for string formatting preferred over `.format()`.
+
+### Imports
+
+Group imports in this order with a blank line between each group:
+
+1. Standard library
+2. Third-party packages
+3. Local / relative imports
+
+```python
+import sys
+from pathlib import Path
+
+import pandas as pd
+from dotenv import load_dotenv
+
+from config import settings
+```
+
+Use absolute imports when possible. Avoid wildcard imports (`from x import *`).
 
 ### Naming Conventions
 
-- Snake_case for variables, function_defs, and files.
-- PascalCase for class names.
-- Constants should be UPPER_SNAKE_CASE.
-- Avoid non-descriptive or single-character names (except for looping/indexes).
+- `snake_case` for variables, functions, and module filenames.
+- `PascalCase` for class names.
+- `UPPER_SNAKE_CASE` for constants and script-level configuration.
+- Avoid single-character names except for loop indexes and simple comprehensions.
 
 ### Typing and Function Signatures
 
-- Prefer typing hints for arguments and return values (Python 3.6+):
+Add type hints for arguments and return values:
 
-  ```python
-  def fetch_data(path: str, retries: int = 3) -> dict:
-  ```
+```python
+def fetch_data(path: str, retries: int = 3) -> dict:
+```
 
-- Use `Any`, `Optional`, and other hints from `typing` where strict type cannot
-  be determined.
+Use `Any`, `Optional`, `Union`, etc. from `typing` when strict types are not
+possible. Use `None` sentinel pattern for optional args with `Optional[T]`.
 
 ### Docstrings and Comments
 
-- Use triple-quoted docstrings for all public classes and functions:
-
-  ```python
-  def func(a: int, b: int) -> int:
-    """Return the sum of a and b."""
-    return a + b
-  ```
-
-- Add comments to clarify non-obvious logic
-
-For Docstrings, use reStructuredText (PEP 287 defaut):
+Use triple-quoted docstrings for all public functions and classes.
+Default to reStructuredText style (PEP 287):
 
 ```python
-def cast_spell(wand, incantation, target=None):
-    """
-    Cast a magical spell using a wand and incantation.
-    This function simulates casting a spell. With no
-    target specified, it is cast into the void.
+def check_csv_encoding(csv_file: str) -> None:
+  """
+  Check the encoding of a CSV file by decoding each line with UTF-8.
 
-    :param wand: The wand used to do the spell-casting deed.
-    :type wand: str
-    :param incantation: The words said to activate the magic.
-    :type incantation: str
-    :param target: The object or person the spell is directed at (optional).
-    :return: A string describing the result of the spell.
-    :rtype: str
+  :param csv_file: Path to the CSV file.
+  :type csv_file: str
+  :return: None. Prints error messages if encoding issues are found.
+  :rtype: None
+  """
 ```
+
+Add inline comments only for non-obvious logic.
 
 ### Error Handling
 
-- Prefer narrow exception classes (not bare `except:` or raw `except Exception:`
-  unless necessary).
-- Use informative error messages and log as appropriate.
-- Handle missing environment/config values gracefully and provide descriptive
-  error output.
+- Catch narrow exception classes, not bare `except:` or broad `except Exception`
+  unless at a top-level script entry point.
+- Provide informative error messages with context.
+- For CLI scripts, handle missing env vars gracefully:
 
-### Project Structure
+```python
+api_key = os.getenv("API_KEY")
+if not api_key:
+  print("Error: API_KEY environment variable is not set.", file=sys.stderr)
+  sys.exit(1)
+```
 
-- Code is separated by project inside `src/project/` and may
-  have sub project folders
-- Scripts should be named by their function or purpose
-- When creating a new subproject, also provide a `README.md` and if needed
-  `requirements.txt`/`pyproject.toml`
+### Script Entry Points
 
-### Version Control
+Prefer a `def main()` pattern with a guard:
 
-- Do NOT commit secrets or `.env` files. Respect the `.gitignore` settings (Python related)
+```python
+def main() -> None:
+  ...
 
-### Third-party Libraries
-
-- Use only listed dependencies. If additional ones are needed, update the local
-  `requirements.txt` or `pyproject.toml` and document in the relevant README.
-- `dotenv` is sometimes used for local environment variables in projects
+if __name__ == "__main__":
+  main()
+```
 
 ### Security and Static Analysis
 
@@ -160,24 +171,41 @@ def cast_spell(wand, incantation, target=None):
   problems: do not shell out without sanitizing inputs, never expose secrets,
   and validate user inputs.
 
+### Project Structure
+
+- Code is organized under `src/` by domain:
+  - `src/project/` -- general-purpose Python projects (CSV, data science,
+    web automation, AI/LLM tools, etc.)
+  - `src/azure-ai-102/` -- Azure AI-102 certification study code
+  - `src/azure-dp-100/` -- Azure DP-100 certification study code
+  - `src/learn/` -- learning notes and small exercises
+- Each sub-project should have a `README.md` and either `pyproject.toml` or
+  `requirements.txt` listing its dependencies.
+- Use kebab-case for script filenames: `csv-check-duplicates.py`.
+
+### Version Control
+
+- Never commit secrets, `.env` files, or API keys.
+- Respect the `.gitignore` (Python, IDE, virtual env patterns).
+- CodeQL security analysis runs weekly via GitHub Actions. Avoid shell injection
+  risks and validate all user inputs.
+
+### Third-party Libraries
+
+- Only use dependencies listed in the relevant `pyproject.toml` or
+  `requirements.txt`. If a new dependency is needed, add it there first.
+- `python-dotenv` is used in some projects for environment variables.
+- No project-global dependency file exists; each sub-project manages its own.
+
 ---
 
-## 3. Adding Tests
+## 3. References
 
-- Place additional tests in proximity to the code or use a `tests` subdirectory.
-- Follow test discovery conventions of your runner (`unittest`, `pytest`, etc).
-- Add clear assert messages.
-
----
-
-## 4. Additional Notes
-
-- For questions about structure or best-practices, refer to
-  [PEP8](https://peps.python.org/pep-0008/) and
-  [Python Dev Guide](https://devguide.python.org/).
-- No Cursor or Copilot specific rules as of now; follow these AGENTS guidelines
-  and PEP8 conventions by default.
-- Maintain these guidelines as the codebase and tooling evolve.
+- [PEP 8 -- Style Guide](https://peps.python.org/pep-0008/)
+- [PEP 257 -- Docstring Conventions](https://peps.python.org/pep-0257/)
+- [Python Developer's Guide](https://devguide.python.org/)
+- No Cursor rules (`.cursorrules` / `.cursor/rules/`) or Copilot instructions
+  (`.github/copilot-instructions.md`) exist. Follow this document and PEP 8.
 
 ---
 
